@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RemindViewController.h
 //  SlimNote
 //
 //  Created by Geetion on 15/12/27.
@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
+@interface RemindViewController : UITableViewController
 
-@interface ViewController : UITableViewController
-@property(nonatomic,weak)NSArray* function;
 @end
-

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UIButton_ShowFloatButton.h
 //  SlimNote
 //
 //  Created by Geetion on 15/12/27.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
-@property(nonatomic,weak)NSArray* function;
-@end
+@interface UIButton ()
 
+@end
