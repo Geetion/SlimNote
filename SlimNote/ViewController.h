@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListItem.h"
 
 @interface ViewController : UITableViewController
 @property(nonatomic,weak)NSArray* function;

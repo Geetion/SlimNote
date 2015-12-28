@@ -17,6 +17,7 @@
 		C0215C511C3027E300E4714C /* SlimNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C501C3027E300E4714C /* SlimNoteTests.m */; };
 		C0215C5C1C3027E300E4714C /* SlimNoteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C5B1C3027E300E4714C /* SlimNoteUITests.m */; };
 		C0215C721C303CD600E4714C /* RemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C711C303CD600E4714C /* RemindViewController.m */; };
+		C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C1D0E81C30A00000FA4ECC /* ListItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		C0215C5D1C3027E300E4714C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0215C701C303CC500E4714C /* RemindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindViewController.h; sourceTree = "<group>"; };
 		C0215C711C303CD600E4714C /* RemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindViewController.m; sourceTree = "<group>"; };
+		C0C1D0E71C30A00000FA4ECC /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		C0C1D0E81C30A00000FA4ECC /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				C0215C3A1C3027E300E4714C /* ViewController.m */,
 				C0215C701C303CC500E4714C /* RemindViewController.h */,
 				C0215C711C303CD600E4714C /* RemindViewController.m */,
+				C0C1D0E71C30A00000FA4ECC /* ListItem.h */,
+				C0C1D0E81C30A00000FA4ECC /* ListItem.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			files = (
 				C0215C411C3027E300E4714C /* SlimNote.xcdatamodeld in Sources */,
 				C0215C3B1C3027E300E4714C /* ViewController.m in Sources */,
+				C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */,
 				C0215C381C3027E300E4714C /* AppDelegate.m in Sources */,
 				C0215C721C303CD600E4714C /* RemindViewController.m in Sources */,
 				C0215C351C3027E300E4714C /* main.m in Sources */,
@@ -522,6 +528,7 @@
 				C0215C621C3027E300E4714C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0215C631C3027E300E4714C /* Build configuration list for PBXNativeTarget "SlimNoteTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +537,7 @@
 				C0215C651C3027E300E4714C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0215C661C3027E300E4714C /* Build configuration list for PBXNativeTarget "SlimNoteUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +546,7 @@
 				C0215C681C3027E300E4714C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
