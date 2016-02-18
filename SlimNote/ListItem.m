@@ -13,4 +13,24 @@
 -(void)toggleCheked{
     self.checked = !self.checked;
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    return self;
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder{
+    
+    [aDecoder decodeBoolForKey:@"checked"];
+    [aDecoder decodeObjectForKey:@"title"];
+    
+    return [super init];
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeBool:self.checked forKey:@"checked"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+}
 @end

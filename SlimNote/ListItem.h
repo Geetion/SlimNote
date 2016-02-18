@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ListItem : NSObject
-@property(nonatomic,copy)NSString *text;
+@interface ListItem : NSObject<NSCoding>
+@property(nonatomic,copy)NSString *title;
 @property(nonatomic,assign)BOOL checked;
 
 -(void)toggleCheked;

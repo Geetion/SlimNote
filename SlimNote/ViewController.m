@@ -14,50 +14,22 @@
 @end
 
 @implementation ViewController
-    NSMutableArray *_items;
+NSMutableArray *_items;
+NSUserDefaults *userDefault;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AddViewController *add = [[AddViewController alloc] init];
-    add.delegate = self;
+    userDefault = [NSUserDefaults standardUserDefaults];
     
-//    self.function = [NSArray arrayWithObjects:@"remind",@"note",nil];
-    _items = [[NSMutableArray alloc]initWithCapacity:20];
-    ListItem *item;
-
-    item = [[ListItem alloc]init];
-    item.text =@"观看嫦娥飞天和玉兔升空的视频";
-    item.checked = NO;
-    [_items addObject:item];
+    if ([userDefault objectForKey:@"cache"] != nil) {
+        NSData *cacheData = [userDefault dataForKey:@"Cache"];
+//        _items = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
+    }else{
+        _items = [[NSMutableArray alloc]initWithCapacity:20];
+    }
     
-    item = [[ListItem alloc]init];
-    item.text =@"了解Sony a7和MBP的最新价格";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ListItem alloc]init];
-    item.text =@"复习苍老师的经典视频教程";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ListItem alloc]init];
-    item.text =@"去电影院看地心引力";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ListItem alloc]init];
-    item.text =@"看西甲巴萨新败的比赛回放";
-    item.checked = NO;
-    [_items addObject:item];
-    
-    item = [[ListItem alloc]init];
-    item.text =@"去香天下吃首相套餐";
-    item.checked = NO;
-    [_items addObject:item];
-
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -68,10 +40,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _items.count;
@@ -111,18 +79,27 @@
 
 -(void)configureTextForCell:(UITableViewCell *)cell withChecklistItem:(ListItem *)item{
     UILabel *label = [cell viewWithTag:1];
-    label.text = item.text;
+    label.text = item.title;
 }
 
 -(void)addItemToTableView:(NSString*)title{
     
+    
     ListItem *item = [[ListItem alloc]init];
-    item.text = title;
+    item.title = title;
     item.checked = NO;
-    [_items addObject:item];
-    NSArray*index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationAutomatic];
-
+    [_items insertObject:item atIndex:0];
+    
+    [_listTableView reloadData];
+    
+    NSLog(@"numberOfRowsInSection: %d", [_listTableView numberOfRowsInSection:0]);
+    
+//    NSArray* index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+//    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationTop];
+    
+    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:item];
+    [userDefault setObject:cacheData forKey:@"cache"];
+    [userDefault synchronize];
 }
 
 

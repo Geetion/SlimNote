@@ -20,9 +20,12 @@
     
     NSString *title = [_titleTextField text];
     
-    [_delegate addItemToTableView:title];
-    
-    [self dismissViewControllerAnimated:true completion:nil];
+    if (title != nil){
+        
+        [_delegate addItemToTableView:title];
+        
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
     
     
 }
