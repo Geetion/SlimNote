@@ -9,14 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SlimNote/ViewController.m"
-            timestampString = "472974615.984144"
+            filePath = "SlimNote/ViewController.h"
+            timestampString = "477484746.125991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
+            startingLineNumber = "10"
+            endingLineNumber = "10">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,12 +23,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SlimNote/ViewController.h"
-            timestampString = "472965133.691739"
+            filePath = "SlimNote/AddViewController.m"
+            timestampString = "477485863.951848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10">
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "@implementation AddViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlimNote/ViewController.m"
+            timestampString = "477486795.0022"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

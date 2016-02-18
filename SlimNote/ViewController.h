@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ListItem.h"
+#import "AddViewController.h"
 
-@interface ViewController : UITableViewController
+@interface ViewController : UITableViewController<addItemDelegate>
 @property(nonatomic,weak)NSArray* function;
+
 @end
 

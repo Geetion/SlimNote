@@ -16,7 +16,8 @@
 		C0215C461C3027E300E4714C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0215C441C3027E300E4714C /* LaunchScreen.storyboard */; };
 		C0215C511C3027E300E4714C /* SlimNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C501C3027E300E4714C /* SlimNoteTests.m */; };
 		C0215C5C1C3027E300E4714C /* SlimNoteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C5B1C3027E300E4714C /* SlimNoteUITests.m */; };
-		C0215C721C303CD600E4714C /* RemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C711C303CD600E4714C /* RemindViewController.m */; };
+		C0215C721C303CD600E4714C /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C711C303CD600E4714C /* AddViewController.m */; };
+		C03B3DBC1C75C370009F81F8 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B3DBB1C75C370009F81F8 /* LocalAuthentication.framework */; };
 		C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C1D0E81C30A00000FA4ECC /* ListItem.m */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +56,9 @@
 		C0215C571C3027E300E4714C /* SlimNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlimNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0215C5B1C3027E300E4714C /* SlimNoteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlimNoteUITests.m; sourceTree = "<group>"; };
 		C0215C5D1C3027E300E4714C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0215C701C303CC500E4714C /* RemindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindViewController.h; sourceTree = "<group>"; };
-		C0215C711C303CD600E4714C /* RemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindViewController.m; sourceTree = "<group>"; };
+		C0215C701C303CC500E4714C /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		C0215C711C303CD600E4714C /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		C03B3DBB1C75C370009F81F8 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C0C1D0E71C30A00000FA4ECC /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
 		C0C1D0E81C30A00000FA4ECC /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03B3DBC1C75C370009F81F8 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +92,7 @@
 		C0215C271C3027E300E4714C = {
 			isa = PBXGroup;
 			children = (
+				C03B3DBB1C75C370009F81F8 /* LocalAuthentication.framework */,
 				C0215C321C3027E300E4714C /* SlimNote */,
 				C0215C4F1C3027E300E4714C /* SlimNoteTests */,
 				C0215C5A1C3027E300E4714C /* SlimNoteUITests */,
@@ -148,8 +152,8 @@
 			children = (
 				C0215C391C3027E300E4714C /* ViewController.h */,
 				C0215C3A1C3027E300E4714C /* ViewController.m */,
-				C0215C701C303CC500E4714C /* RemindViewController.h */,
-				C0215C711C303CD600E4714C /* RemindViewController.m */,
+				C0215C701C303CC500E4714C /* AddViewController.h */,
+				C0215C711C303CD600E4714C /* AddViewController.m */,
 				C0C1D0E71C30A00000FA4ECC /* ListItem.h */,
 				C0C1D0E81C30A00000FA4ECC /* ListItem.m */,
 			);
@@ -303,7 +307,7 @@
 				C0215C3B1C3027E300E4714C /* ViewController.m in Sources */,
 				C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */,
 				C0215C381C3027E300E4714C /* AppDelegate.m in Sources */,
-				C0215C721C303CD600E4714C /* RemindViewController.m in Sources */,
+				C0215C721C303CD600E4714C /* AddViewController.m in Sources */,
 				C0215C351C3027E300E4714C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				INFOPLIST_FILE = SlimNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Geetion.SlimNote;
@@ -454,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				INFOPLIST_FILE = SlimNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Geetion.SlimNote;

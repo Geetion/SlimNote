@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *listTableView;
 
 @end
 
@@ -19,18 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AddViewController *add = [[AddViewController alloc] init];
+    add.delegate = self;
+    
 //    self.function = [NSArray arrayWithObjects:@"remind",@"note",nil];
     _items = [[NSMutableArray alloc]initWithCapacity:20];
     ListItem *item;
-//    for (int i = 0; i < 5; i++) {
-//        item.isChecked = TRUE;
-//        item.title = @"ASDASDAD";
-//        [_items addObject:item];
-//    }
-//    for (int i=0; i<5; i++) {
-//        item.isChecked = false;
-//        item.title = @"12312313";
-//        [_items addObject:item];
+
     item = [[ListItem alloc]init];
     item.text =@"观看嫦娥飞天和玉兔升空的视频";
     item.checked = NO;
@@ -61,8 +57,15 @@
     item.checked = NO;
     [_items addObject:item];
 
-    
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier]  isEqual: @"add"]){
+        AddViewController *add = [segue destinationViewController];
+        add.delegate = self;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,9 +78,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    printf("1111");
-    ListItem *item = _items[indexPath.row];
+    
+    ListItem *item = _items[_items.count - 1 - indexPath.row];
     [self configureTextForCell:cell withChecklistItem:item];
     return cell;
 }
@@ -109,5 +113,17 @@
     UILabel *label = [cell viewWithTag:1];
     label.text = item.text;
 }
+
+-(void)addItemToTableView:(NSString*)title{
+    
+    ListItem *item = [[ListItem alloc]init];
+    item.text = title;
+    item.checked = NO;
+    [_items addObject:item];
+    NSArray*index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
 
 @end
