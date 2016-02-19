@@ -14,7 +14,7 @@
 @end
 
 @interface AddViewController : UITableViewController
-    @property id<addItemDelegate> delegate;
+@property id<addItemDelegate> delegate;
 
 
 @end

@@ -20,7 +20,9 @@
     
     NSString *title = [_titleTextField text];
     
-    if (title != nil){
+    NSLog(@"111%d",title.length);
+    
+    if (title.length != 0){
         
         [_delegate addItemToTableView:title];
         

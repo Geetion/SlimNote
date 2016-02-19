@@ -10,11 +10,10 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *listTableView;
-
+@property (strong, nonatomic) NSMutableArray *listitems;
 @end
 
 @implementation ViewController
-NSMutableArray *_items;
 NSUserDefaults *userDefault;
 
 
@@ -23,11 +22,15 @@ NSUserDefaults *userDefault;
     
     userDefault = [NSUserDefaults standardUserDefaults];
     
-    if ([userDefault objectForKey:@"cache"] != nil) {
-        NSData *cacheData = [userDefault dataForKey:@"Cache"];
-//        _items = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
+    _listitems = [[NSMutableArray alloc]initWithCapacity:20];
+    
+    if ([userDefault objectForKey:@"cache"] != NULL) {
+        NSData *cacheData = [userDefault dataForKey:@"cache"];
+       _listitems = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
+        for (ListItem *item in _listitems) {
+            NSLog(@"%@",item.title);
+        }
     }else{
-        _items = [[NSMutableArray alloc]initWithCapacity:20];
     }
     
 }
@@ -42,14 +45,14 @@ NSUserDefaults *userDefault;
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _items.count;
+    return _listitems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    ListItem *item = _items[_items.count - 1 - indexPath.row];
+    ListItem *item = _listitems[_listitems.count - 1 - indexPath.row];
     [self configureTextForCell:cell withChecklistItem:item];
     return cell;
 }
@@ -57,16 +60,18 @@ NSUserDefaults *userDefault;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    ListItem *item = _items[indexPath.row];
+    ListItem *item = _listitems[indexPath.row];
     [item toggleCheked];
     [self configureCheckmarkForCell:cell atIndexPath:item];
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    [self saveData];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray* indexPaths = @[indexPath];
-    [_items removeObjectAtIndex:indexPath.row];
+    [_listitems removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:true];
+    [self saveData];
 }
 
 -(void)configureCheckmarkForCell:(UITableViewCell *)cell atIndexPath:(ListItem *)item{
@@ -87,17 +92,16 @@ NSUserDefaults *userDefault;
     
     ListItem *item = [[ListItem alloc]init];
     item.title = title;
-    item.checked = NO;
-    [_items insertObject:item atIndex:0];
+    [_listitems addObject:item];
     
-    [_listTableView reloadData];
+    NSArray* index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationTop];
     
-    NSLog(@"numberOfRowsInSection: %d", [_listTableView numberOfRowsInSection:0]);
-    
-//    NSArray* index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-//    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationTop];
-    
-    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:item];
+    [self saveData];
+}
+
+-(void)saveData{
+    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:_listitems];
     [userDefault setObject:cacheData forKey:@"cache"];
     [userDefault synchronize];
 }

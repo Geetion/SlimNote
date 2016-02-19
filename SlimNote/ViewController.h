@@ -11,7 +11,5 @@
 #import "AddViewController.h"
 
 @interface ViewController : UITableViewController<addItemDelegate>
-@property(nonatomic,weak)NSArray* function;
-
 @end
 

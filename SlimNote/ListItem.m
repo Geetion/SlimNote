@@ -17,13 +17,14 @@
 - (instancetype)init
 {
     self = [super init];
+    self.checked = !self.checked;
     return self;
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder{
     
-    [aDecoder decodeBoolForKey:@"checked"];
-    [aDecoder decodeObjectForKey:@"title"];
+    self.checked = [aDecoder decodeBoolForKey:@"checked"];
+    self.title = [aDecoder decodeObjectForKey:@"title"];
     
     return [super init];
 }
