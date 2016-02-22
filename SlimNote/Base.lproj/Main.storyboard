@@ -37,6 +37,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bVF-HV-bFX">
+                        <barButtonItem key="leftBarButtonItem" title="设置" id="bXu-9z-9By">
+                            <connections>
+                                <segue destination="2ll-yB-5EP" kind="push" id="hlp-uE-Wo0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nuA-yF-Y3V">
                             <connections>
                                 <segue destination="Uuk-SE-jFb" kind="modal" identifier="add" id="J4G-Jp-Evp"/>
@@ -87,7 +92,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="定时提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q9-me-Bvh">
                                                     <rect key="frame" x="23" y="12" width="79" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-rz-EhM">
@@ -156,6 +161,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X72-lu-ehb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="174" y="265"/>
+        </scene>
+        <!--Password View Controller-->
+        <scene sceneID="yFg-03-ybf">
+            <objects>
+                <viewController storyboardIdentifier="password" id="TL9-4W-cnJ" customClass="PasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pWW-XK-r1D"/>
+                        <viewControllerLayoutGuide type="bottom" id="wCR-eY-XGb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o3N-x3-vzy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yqu-Vb-W2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="VYw-Rx-jmA">
+            <objects>
+                <tableViewController id="2ll-yB-5EP" customClass="SettingViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="77" sectionHeaderHeight="18" sectionFooterHeight="18" id="pAg-Ry-vXz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="bDf-f0-Wtb">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="2cG-Fx-KNy">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2cG-Fx-KNy" id="sBk-Uy-viA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hUi-jA-gpM">
+                                                    <rect key="frame" x="231" y="22" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="passwordSwitchDidChange:" destination="2ll-yB-5EP" eventType="valueChanged" id="gTk-Qa-nnA"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="2ll-yB-5EP" id="tGl-78-Tzw"/>
+                            <outlet property="delegate" destination="2ll-yB-5EP" id="KUU-V4-xYV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hnY-lK-aMY"/>
+                    <connections>
+                        <outlet property="passwordSwitch" destination="hUi-jA-gpM" id="ifO-xZ-54Z"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIb-ZR-bGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="-443"/>
         </scene>
     </scenes>
 </document>

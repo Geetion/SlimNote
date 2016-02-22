@@ -11,5 +11,6 @@
 #import "AddViewController.h"
 
 @interface ViewController : UITableViewController<addItemDelegate>
+@property (readonly, strong, nonatomic) NSUserDefaults* userDefault;
 @end
 

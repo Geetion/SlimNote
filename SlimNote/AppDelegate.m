@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PasswordViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self firstLaunch];
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self Mypassword];
+    if ([_userDefault boolForKey:@"passwordSwitch"]) {
+        PasswordViewController *vc = [[UIStoryboard init] instantiateViewControllerWithIdentifier:@"password"];
+        self.window.rootViewController = vc;
+    }
     
     return YES;
 }
@@ -127,24 +133,10 @@
     }
 }
 
--(void)Mypassword{
-    LAContext *lacontext = [[LAContext alloc]init];
-     NSError *error;
-    
-    if ([lacontext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        
-        [lacontext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                  localizedReason:@"Touch Id Test"
-                            reply:^(BOOL success, NSError *error) {
-                                if (success) {
+-(void)firstLaunch{
 
-                                }else{
-                                    
-                                }
-                            }];
-    }
-    else {
-
+    if ([_userDefault boolForKey:@"isfirst"] == nil) {
+        [_userDefault setBool:false forKey:@"passwordSwitch"];
     }
 }
 
