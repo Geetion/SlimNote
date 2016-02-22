@@ -17,7 +17,7 @@
 - (instancetype)init
 {
     self = [super init];
-    self.checked = !self.checked;
+    self.checked = false;
     return self;
 }
 

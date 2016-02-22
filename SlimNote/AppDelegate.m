@@ -18,6 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [self Mypassword];
+    
     return YES;
 }
 
@@ -126,6 +128,24 @@
 }
 
 -(void)Mypassword{
+    LAContext *lacontext = [[LAContext alloc]init];
+     NSError *error;
+    
+    if ([lacontext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        
+        [lacontext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                  localizedReason:@"Touch Id Test"
+                            reply:^(BOOL success, NSError *error) {
+                                if (success) {
+
+                                }else{
+                                    
+                                }
+                            }];
+    }
+    else {
+
+    }
 }
 
 @end

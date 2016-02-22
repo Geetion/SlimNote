@@ -13,6 +13,17 @@
 @end
 @implementation AddViewController
 
+- (IBAction)dateSwitch:(UISwitch *)sender {
+    
+    NSArray* index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    if ([sender state]) {
+        [[self tableView] deleteRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationAutomatic];
+    }else{
+        [[self tableView] insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 - (IBAction)cancelButton:(UIButton *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
@@ -20,7 +31,9 @@
     
     NSString *title = [_titleTextField text];
     
-    NSLog(@"111%d",title.length);
+    if (title != nil){
+        printf("222");
+    }
     
     if (title.length != 0){
         
@@ -30,10 +43,6 @@
     }
     
     
-}
-
--(void)viewDidLoad{
-    [super viewDidLoad];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

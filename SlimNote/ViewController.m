@@ -52,8 +52,9 @@ NSUserDefaults *userDefault;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    ListItem *item = _listitems[_listitems.count - 1 - indexPath.row];
+    ListItem *item = _listitems[indexPath.row];
     [self configureTextForCell:cell withChecklistItem:item];
+    [self configureCheckmarkForCell:cell atIndexPath:item];
     return cell;
 }
 
@@ -61,6 +62,7 @@ NSUserDefaults *userDefault;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     ListItem *item = _listitems[indexPath.row];
+    NSLog(@"%d",item.checked);
     [item toggleCheked];
     [self configureCheckmarkForCell:cell atIndexPath:item];
     [tableView deselectRowAtIndexPath:indexPath animated:true];
@@ -73,7 +75,9 @@ NSUserDefaults *userDefault;
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:true];
     [self saveData];
 }
-
+/*
+ @param item the cell will show
+ */
 -(void)configureCheckmarkForCell:(UITableViewCell *)cell atIndexPath:(ListItem *)item{
     if (item.checked) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -94,8 +98,12 @@ NSUserDefaults *userDefault;
     item.title = title;
     [_listitems addObject:item];
     
+    
+    
     NSArray* index = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationTop];
+    [_listTableView insertRowsAtIndexPaths:index withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [[self tableView] reloadData];
     
     [self saveData];
 }
