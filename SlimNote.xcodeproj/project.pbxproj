@@ -18,6 +18,7 @@
 		C0215C5C1C3027E300E4714C /* SlimNoteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C5B1C3027E300E4714C /* SlimNoteUITests.m */; };
 		C0215C721C303CD600E4714C /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0215C711C303CD600E4714C /* AddViewController.m */; };
 		C03B3DBC1C75C370009F81F8 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B3DBB1C75C370009F81F8 /* LocalAuthentication.framework */; };
+		C06CB56B1C7C63310016730A /* PasswordSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06CB56A1C7C63310016730A /* PasswordSettingViewController.m */; };
 		C096DF3E1C7B1406008B6C1D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C096DF3D1C7B1406008B6C1D /* SettingViewController.m */; };
 		C096DF441C7B2301008B6C1D /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C096DF431C7B2301008B6C1D /* PasswordViewController.m */; };
 		C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C1D0E81C30A00000FA4ECC /* ListItem.m */; };
@@ -61,6 +62,8 @@
 		C0215C701C303CC500E4714C /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		C0215C711C303CD600E4714C /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		C03B3DBB1C75C370009F81F8 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		C06CB5691C7C63310016730A /* PasswordSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordSettingViewController.h; sourceTree = "<group>"; };
+		C06CB56A1C7C63310016730A /* PasswordSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordSettingViewController.m; sourceTree = "<group>"; };
 		C096DF3C1C7B1406008B6C1D /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		C096DF3D1C7B1406008B6C1D /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		C096DF421C7B2301008B6C1D /* PasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordViewController.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				C0C1D0E81C30A00000FA4ECC /* ListItem.m */,
 				C096DF421C7B2301008B6C1D /* PasswordViewController.h */,
 				C096DF431C7B2301008B6C1D /* PasswordViewController.m */,
+				C06CB5691C7C63310016730A /* PasswordSettingViewController.h */,
+				C06CB56A1C7C63310016730A /* PasswordSettingViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0215C411C3027E300E4714C /* SlimNote.xcdatamodeld in Sources */,
+				C06CB56B1C7C63310016730A /* PasswordSettingViewController.m in Sources */,
 				C0215C3B1C3027E300E4714C /* ViewController.m in Sources */,
 				C0C1D0E91C30A00000FA4ECC /* ListItem.m in Sources */,
 				C096DF3E1C7B1406008B6C1D /* SettingViewController.m in Sources */,

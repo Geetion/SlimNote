@@ -23,7 +23,7 @@
     
     _userDefault = [NSUserDefaults standardUserDefaults];
     
-    if ([_userDefault boolForKey:@"passwordIsOn"]) {
+    if ([_userDefault boolForKey:@"passwordIsOn"] == true) {
         UIStoryboard *myStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PasswordViewController *vc = [myStoryBoard instantiateViewControllerWithIdentifier:@"password"];
         self.window.rootViewController = vc;
@@ -138,7 +138,7 @@
 
 -(void)firstLaunch{
 
-    if ([_userDefault boolForKey:@"isfirst"] == nil) {
+    if ([_userDefault boolForKey:@"isfirst"]) {
         [_userDefault setBool:false forKey:@"passwordIsOn"];
         
         [_userDefault setBool:false forKey:@"isfirst"];

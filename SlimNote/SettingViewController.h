@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PasswordSettingViewController.h"
 
-@interface SettingViewController : UITableViewController
+@interface SettingViewController : UITableViewController<PasswordSettingDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *passwordSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *touchIDSwitch;
 @property (readonly, strong, nonatomic) NSUserDefaults* userDefault;

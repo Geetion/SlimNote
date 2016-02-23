@@ -29,9 +29,6 @@ NSMutableArray *listitems;
     if ([_userDefault objectForKey:@"cache"] != NULL) {
         NSData *cacheData = [_userDefault dataForKey:@"cache"];
        listitems = [NSKeyedUnarchiver unarchiveObjectWithData:cacheData];
-        for (ListItem *item in listitems) {
-            NSLog(@"%@",item.title);
-        }
     }else{
     }
     

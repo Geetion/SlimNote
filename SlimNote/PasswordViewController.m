@@ -15,8 +15,11 @@
     
     _userDefault = [NSUserDefaults standardUserDefaults];
     
-    if ([_userDefault objectForKey:@"touchIDisOn"]) {
+    if ([_userDefault objectForKey:@"touchIDisOn"] ==true ) {
             [self checkTouchID];
+    }else{
+
+        _touchIDButtonOutlet.alpha = 0;
     }
 }
 
@@ -51,7 +54,6 @@
 - (IBAction)confirmButton:(UIButton *)sender {
     
     NSString *password = [_userDefault objectForKey:@"password"];
-    
     if ( [_passwordInput.text isEqualToString: password]) {
         [self signIn];
     }

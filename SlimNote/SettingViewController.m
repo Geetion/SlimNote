@@ -33,7 +33,7 @@
     
     if ([sender isOn]) {
         
-        [_userDefault setBool:true forKey:@"passwordIsOn"];
+        [self setPassword];
         
     }else{
         
@@ -41,7 +41,7 @@
         
         [_touchIDSwitch setOn:false animated:true];
     }
-    
+
     [_userDefault synchronize];
 }
 
@@ -55,6 +55,8 @@
         
         [_userDefault setBool:true forKey:@"passwordIsOn"];
         
+        [self setPassword];
+        
     }else{
         
         [_userDefault setBool:false forKey:@"touchIDisOn"];
@@ -63,21 +65,24 @@
     [_userDefault synchronize];
 }
 
-- (IBAction)confirmSetting:(UIButton *)sender {
+-(void)setPassword{
+    UIStoryboard *myStoryBoard = [ UIStoryboard storyboardWithName:@"Main" bundle:nil ];
+    UINavigationController *navigation = [myStoryBoard instantiateViewControllerWithIdentifier:@"passwordSetting"];
     
-    if (_passwordText.text.length != 0&& _passwordRepeat.text.length != 0
-        &&[_passwordRepeat.text isEqualToString: _passwordText.text]) {
-        
-        [_userDefault setObject:_passwordText.text forKey:@"password"];
-        
-        [[self navigationController] popViewControllerAnimated:true];
-    }
+    PasswordSettingViewController *viewController = [navigation topViewController];
+    
+    viewController.delegate = self;
+    
+    [self presentViewController:navigation animated:true completion:nil];
 }
 
-//点击View去除textfield焦点
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [_passwordText resignFirstResponder];
-    [_passwordRepeat resignFirstResponder];
+-(void)passwordDidSet{
+    
+    NSString *password = [_userDefault objectForKey:@"password"];
+    
+    [_userDefault setBool:true forKey:@"passwordIsOn"];
+    
+    [_passwordSwitch setOn:true animated:true];
 }
 
 @end

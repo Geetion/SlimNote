@@ -12,5 +12,6 @@
 @interface PasswordViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (readonly, strong, nonatomic) NSUserDefaults* userDefault;
+@property (weak, nonatomic) IBOutlet UIButton *touchIDButtonOutlet;
 
 @end
