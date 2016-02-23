@@ -12,11 +12,15 @@
 @implementation PasswordViewController
 
 -(void)viewDidLoad{
+    
     _userDefault = [NSUserDefaults standardUserDefaults];
-    [self checkPassword];
+    
+    if ([_userDefault objectForKey:@"touchIDisOn"]) {
+            [self checkTouchID];
+    }
 }
 
--(void)checkPassword{
+-(void)checkTouchID{
     
     LAContext *lacontext = [[LAContext alloc]init];
     NSError *error;
@@ -43,9 +47,21 @@
     UINavigationController *navigation = [myStoryBoard instantiateViewControllerWithIdentifier:@"rootView"];
     [self presentViewController:navigation animated:TRUE completion:nil];
 }
+
 - (IBAction)confirmButton:(UIButton *)sender {
     
-    NSString password = 
+    NSString *password = [_userDefault objectForKey:@"password"];
+    
+    if ( [_passwordInput.text isEqualToString: password]) {
+        [self signIn];
+    }
+}
+- (IBAction)touchIDButton:(UIButton *)sender {
+    [self checkTouchID];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_passwordInput resignFirstResponder];
 }
 
 @end
