@@ -10,6 +10,9 @@
 
 @interface SettingViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UISwitch *passwordSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *touchIDSwitch;
 @property (readonly, strong, nonatomic) NSUserDefaults* userDefault;
+@property (weak, nonatomic) IBOutlet UITextField *passwordText;
+@property (weak, nonatomic) IBOutlet UITextField *passwordRepeat;
 
 @end

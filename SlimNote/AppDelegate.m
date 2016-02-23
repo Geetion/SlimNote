@@ -21,8 +21,11 @@
     [self firstLaunch];
 //    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    if ([_userDefault boolForKey:@"passwordSwitch"]) {
-        PasswordViewController *vc = [[UIStoryboard init] instantiateViewControllerWithIdentifier:@"password"];
+    _userDefault = [NSUserDefaults standardUserDefaults];
+    
+    if ([_userDefault boolForKey:@"passwordIsOn"]) {
+        UIStoryboard *myStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PasswordViewController *vc = [myStoryBoard instantiateViewControllerWithIdentifier:@"password"];
         self.window.rootViewController = vc;
     }
     
@@ -136,7 +139,9 @@
 -(void)firstLaunch{
 
     if ([_userDefault boolForKey:@"isfirst"] == nil) {
-        [_userDefault setBool:false forKey:@"passwordSwitch"];
+        [_userDefault setBool:false forKey:@"passwordIsOn"];
+        
+        [_userDefault setBool:false forKey:@"isfirst"];
     }
 }
 

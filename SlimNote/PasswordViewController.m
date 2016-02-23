@@ -7,10 +7,12 @@
 //
 
 #import "PasswordViewController.h"
+#import "ViewController.h"
 
 @implementation PasswordViewController
 
 -(void)viewDidLoad{
+    _userDefault = [NSUserDefaults standardUserDefaults];
     [self checkPassword];
 }
 
@@ -22,10 +24,10 @@
     if ([lacontext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         
         [lacontext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-                  localizedReason:@"Touch Id Test"
+                  localizedReason:@"请验证指纹"
                             reply:^(BOOL success, NSError *error) {
                                 if (success) {
-                                    
+                                    [self signIn];
                                 }else{
                                     
                                 }
@@ -34,6 +36,16 @@
     else {
         
     }
+}
+
+-(void)signIn{
+    UIStoryboard *myStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigation = [myStoryBoard instantiateViewControllerWithIdentifier:@"rootView"];
+    [self presentViewController:navigation animated:TRUE completion:nil];
+}
+- (IBAction)confirmButton:(UIButton *)sender {
+    
+    NSString password = 
 }
 
 @end

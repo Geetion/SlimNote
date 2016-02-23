@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="Bx5-EE-GM4">
             <objects>
-                <tableViewController id="QN4-jI-9K5" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="root" id="QN4-jI-9K5" customClass="ViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="122" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oz7-aK-Aok">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
         <!--Navigation Controller-->
         <scene sceneID="5L6-L1-aTO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cEd-eG-rLd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="rootView" automaticallyAdjustsScrollViewInsets="NO" id="cEd-eG-rLd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qJ1-cc-bOB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -173,11 +173,29 @@
                     <view key="view" contentMode="scaleToFill" id="o3N-x3-vzy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bef-3z-x5m">
+                                <rect key="frame" x="145" y="457" width="30" height="30"/>
+                                <state key="normal" title="确认"/>
+                                <connections>
+                                    <action selector="confirmButton:" destination="TL9-4W-cnJ" eventType="touchUpInside" id="7kM-7e-mrg"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phs-l7-3c2">
+                                <rect key="frame" x="34" y="356" width="252" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordInput" destination="phs-l7-3c2" id="lFq-tu-IX3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqu-Vb-W2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="357" y="-317"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="VYw-Rx-jmA">
@@ -203,6 +221,71 @@
                                                         <action selector="passwordSwitchDidChange:" destination="2ll-yB-5EP" eventType="valueChanged" id="gTk-Qa-nnA"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv4-8J-rOB">
+                                                    <rect key="frame" x="37" y="28" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bHg-0V-Bm1">
+                                        <rect key="frame" x="0.0" y="176" width="320" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHg-0V-Bm1" id="IGR-37-Tj0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Touch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWX-yS-xWY">
+                                                    <rect key="frame" x="38" y="28" width="83" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUF-AX-Dvc">
+                                                    <rect key="frame" x="234" y="23" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="touchIDSwitchDidChange:" destination="2ll-yB-5EP" eventType="valueChanged" id="pyz-AM-5Oa"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="122" id="WXk-cS-0VA">
+                                        <rect key="frame" x="0.0" y="253" width="320" height="122"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WXk-cS-0VA" id="CGb-fW-Vsg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="121.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R64-M4-EGR">
+                                                    <rect key="frame" x="35" y="73" width="248" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="izU-eJ-Qqm">
+                                                    <rect key="frame" x="35" y="21" width="248" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0le-jG-90q">
+                                        <rect key="frame" x="0.0" y="375" width="320" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0le-jG-90q" id="XOF-Wt-o3h">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMu-SW-AiA">
+                                                    <rect key="frame" x="137" y="24" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="confirmSetting:" destination="2ll-yB-5EP" eventType="touchUpInside" id="dqI-ZK-Clu"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -216,7 +299,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="hnY-lK-aMY"/>
                     <connections>
+                        <outlet property="passwordRepeat" destination="R64-M4-EGR" id="k3e-gz-cwT"/>
                         <outlet property="passwordSwitch" destination="hUi-jA-gpM" id="ifO-xZ-54Z"/>
+                        <outlet property="passwordText" destination="izU-eJ-Qqm" id="D4k-fH-cNM"/>
+                        <outlet property="touchIDSwitch" destination="pUF-AX-Dvc" id="2Ej-Zz-g6Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIb-ZR-bGn" userLabel="First Responder" sceneMemberID="firstResponder"/>

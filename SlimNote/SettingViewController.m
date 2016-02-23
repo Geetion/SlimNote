@@ -14,17 +14,35 @@
 -(void)loadView{
     [super loadView];
     
-    if ([_userDefault boolForKey:@"passwordSwitch"]) {
+    _userDefault = [NSUserDefaults standardUserDefaults];
+    
+    if ([_userDefault boolForKey:@"passwordIsOn"] == true) {
         _passwordSwitch.on = true;
     }else{
         _passwordSwitch.on = false;
     }
 }
 - (IBAction)passwordSwitchDidChange:(UISwitch *)sender {
-    if ([sender state]) {
-        [_userDefault setBool:false forKey:@"passwordSwitch"];
+    if ([sender isOn]) {
+        [_userDefault setBool:true forKey:@"passwordIsOn"];
     }else{
-        [_userDefault setBool:true forKey:@"passwordSwitch"];
+        [_userDefault setBool:false forKey:@"passwordIsOn"];
+    }
+    [_userDefault synchronize];
+}
+- (IBAction)touchIDSwitchDidChange:(UISwitch *)sender {
+    if ([sender isOn]) {
+        [_userDefault setBool:true forKey:@"touchIDisOn"];
+    }else{
+        [_userDefault setBool:false forKey:@"touchIDisOn"];
+    }
+    [_userDefault synchronize];
+}
+- (IBAction)confirmSetting:(UIButton *)sender {
+    
+    if (_passwordText.text.length != 0&& _passwordRepeat.text.length != 0&&
+        _passwordRepeat == _passwordText) {
+        [_userDefault setObject:_passwordText.text forKey:@"password"];
     }
 }
 

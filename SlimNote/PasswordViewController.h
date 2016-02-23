@@ -10,5 +10,7 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 
 @interface PasswordViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+@property (readonly, strong, nonatomic) NSUserDefaults* userDefault;
 
 @end
