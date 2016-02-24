@@ -53,9 +53,11 @@
 
 - (IBAction)confirmButton:(UIButton *)sender {
     
-    NSString *password = [_userDefault objectForKey:@"password"];
-    if ( [_passwordInput.text isEqualToString: password]) {
-        [self signIn];
+    if (_passwordInput.text.length!=0) {
+        NSString *password = [_userDefault objectForKey:@"password"];
+        if ( [_passwordInput.text isEqualToString: password]) {
+            [self signIn];
+        }
     }
 }
 - (IBAction)touchIDButton:(UIButton *)sender {
@@ -64,6 +66,11 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [_passwordInput resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self confirmButton:nil];
+    return true;
 }
 
 @end

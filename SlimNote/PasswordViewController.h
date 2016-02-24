@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
-@interface PasswordViewController : UIViewController
+@interface PasswordViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (readonly, strong, nonatomic) NSUserDefaults* userDefault;
 @property (weak, nonatomic) IBOutlet UIButton *touchIDButtonOutlet;

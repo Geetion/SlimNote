@@ -122,6 +122,7 @@
 		C0215C321C3027E300E4714C /* SlimNote */ = {
 			isa = PBXGroup;
 			children = (
+				C0215C691C302CDD00E4714C /* ViewController */,
 				C0215C6A1C302CEB00E4714C /* Base */,
 				C0215C3C1C3027E300E4714C /* Main.storyboard */,
 				C0215C331C3027E300E4714C /* Supporting Files */,
@@ -183,7 +184,6 @@
 				C0215C421C3027E300E4714C /* Assets.xcassets */,
 				C0215C3F1C3027E300E4714C /* SlimNote.xcdatamodeld */,
 				C0215C471C3027E300E4714C /* Info.plist */,
-				C0215C691C302CDD00E4714C /* ViewController */,
 			);
 			name = Base;
 			sourceTree = "<group>";

@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "AppDelegate.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @implementation SettingViewController
 
@@ -39,6 +40,8 @@
         
         [_userDefault setBool:false forKey:@"passwordIsOn"];
         
+        [_userDefault removeObjectForKey:@"password"];
+        
         [_touchIDSwitch setOn:false animated:true];
     }
 
@@ -53,9 +56,9 @@
         
         [_userDefault setBool:true forKey:@"touchIDisOn"];
         
-        [_userDefault setBool:true forKey:@"passwordIsOn"];
-        
-        [self setPassword];
+        if([_userDefault objectForKey:@"password"] == nil){
+            [self setPassword];
+        }
         
     }else{
         
@@ -63,6 +66,18 @@
     }
     
     [_userDefault synchronize];
+}
+
+-(void)checkTouchIDSupport{
+    LAContext *lacontext = [[LAContext alloc]init];
+    NSError *error;
+    
+    if ([lacontext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]==true) {
+            [_userDefault setBool:true forKey:@"touchIDisOn"];
+    }
+    else {
+        [_touchIDSwitch setOn:false animated:true];
+    }
 }
 
 -(void)setPassword{
@@ -76,13 +91,29 @@
     [self presentViewController:navigation animated:true completion:nil];
 }
 
+#pragma PasswordSettingDelegate
 -(void)passwordDidSet{
-    
-    NSString *password = [_userDefault objectForKey:@"password"];
     
     [_userDefault setBool:true forKey:@"passwordIsOn"];
     
     [_passwordSwitch setOn:true animated:true];
+}
+
+#pragma tableView delegate&datasource
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([indexPath section]) {
+        
+        switch ([indexPath row]) {
+            case 0:
+                
+                break;
+            default:
+                break;
+        }
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end
