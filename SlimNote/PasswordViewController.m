@@ -15,7 +15,7 @@
     
     _userDefault = [NSUserDefaults standardUserDefaults];
     
-    if ([_userDefault objectForKey:@"touchIDisOn"] ==true ) {
+    if ([_userDefault boolForKey:@"touchIDisOn"] == true ) {
             [self checkTouchID];
     }else{
 

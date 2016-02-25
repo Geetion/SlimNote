@@ -27,23 +27,22 @@
 - (IBAction)cancelButton:(UIButton *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
-- (IBAction)confirmButton:(UIButton *)sender {
+- (IBAction)confirmButton:(id)sender {
     
     NSString *title = [_titleTextField text];
-    
-    if (title != nil){
-        printf("222");
-    }
     
     if (title.length != 0){
         
         [_delegate addItemToTableView:title];
         
+        printf("222");
+        
         [self dismissViewControllerAnimated:true completion:nil];
     }
     
-    
 }
+//- (IBAction)confirmButton:(UIButton *)sender {
+//}
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

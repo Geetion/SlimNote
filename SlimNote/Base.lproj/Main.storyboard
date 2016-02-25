@@ -37,12 +37,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bVF-HV-bFX">
-                        <barButtonItem key="leftBarButtonItem" title="设置" id="bXu-9z-9By">
+                        <barButtonItem key="leftBarButtonItem" title="设置" style="plain" id="bXu-9z-9By">
                             <connections>
                                 <segue destination="2ll-yB-5EP" kind="push" id="hlp-uE-Wo0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nuA-yF-Y3V">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nuA-yF-Y3V">
                             <connections>
                                 <segue destination="IBL-iP-79C" kind="modal" identifier="add" id="J4G-Jp-Evp"/>
                             </connections>
@@ -110,6 +110,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o73-zR-ZZw" id="wjc-gR-yXc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-C2-7In">
+                                                    <rect key="frame" x="137" y="21" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -130,6 +136,9 @@
                                     <action selector="confirmButton:" destination="Uuk-SE-jFb" eventType="touchUpInside" id="AAo-dT-mM1"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <action selector="confirmButton:" destination="Uuk-SE-jFb" id="Rkq-eS-ZOn"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Nzr-9B-JbM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gmR-lG-Fav">
@@ -148,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLG-IH-F40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875" y="288"/>
+            <point key="canvasLocation" x="1785" y="288"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5L6-L1-aTO">
@@ -376,6 +385,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rPX-UV-wY5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CmZ-wD-UqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IBL-iP-79C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OrN-99-bB7">
@@ -387,7 +397,6 @@
                         <segue destination="Uuk-SE-jFb" kind="relationship" relationship="rootViewController" id="v20-Ih-ear"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CmZ-wD-UqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1343" y="288"/>
         </scene>
