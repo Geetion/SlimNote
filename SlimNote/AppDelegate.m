@@ -29,6 +29,15 @@
         self.window.rootViewController = vc;
     }
     
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:5];
+    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
+    localNotification.fireDate = date;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = @"fffffffffffff";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
+    
     return YES;
 }
 

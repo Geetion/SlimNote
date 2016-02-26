@@ -36,4 +36,5 @@
     [_passwordText resignFirstResponder];
     [_passwordRepeat resignFirstResponder];
 }
+
 @end

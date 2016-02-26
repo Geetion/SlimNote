@@ -22,7 +22,7 @@ NSMutableArray *listitems;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self loadChecklistItems];
+    [self loadData];
     
 }
 
@@ -75,7 +75,7 @@ NSMutableArray *listitems;
     [data writeToFile:[self dataFilePath] atomically:YES];
 }
 
--(void)loadChecklistItems{
+-(void)loadData{
     
     NSString *path =[self dataFilePath];
     
@@ -111,17 +111,24 @@ NSMutableArray *listitems;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     ListItem *item = listitems[indexPath.row];
-    NSLog(@"%d",item.checked);
+
     [item toggleCheked];
+    
     [self configureCheckmarkForCell:cell atIndexPath:item];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
     [self saveData];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSArray* indexPaths = @[indexPath];
+    
     [listitems removeObjectAtIndex:indexPath.row];
+    
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:true];
+    
     [self saveData];
 }
 
